@@ -8,7 +8,6 @@ const swaggerDocument = require('../swagger/swagger.json');  // Swagger document
 
 const app = express();
 
-
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());  // To parse JSON request bodies
@@ -30,6 +29,12 @@ app.use('/permit-service', permitRoutes);
 // Fallback route for undefined paths
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
+});
+
+// Error handling middleware (optional but recommended)
+app.use((err, req, res, next) => {
+  console.error(err.stack);  // Log the error for debugging purposes
+  res.status(500).json({ message: 'Internal Server Error' });
 });
 
 module.exports = app;

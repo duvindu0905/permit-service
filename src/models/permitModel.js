@@ -17,6 +17,15 @@ const permitSchema = new mongoose.Schema({
   ac: { type: Boolean, default: false },
 });
 
+// Automatically remove _id and __v from response
+permitSchema.set('toJSON', {
+  transform: (doc, ret) => {
+    delete ret._id;
+    delete ret.__v;
+    return ret;
+  },
+});
+
 const Permit = mongoose.model('Permit', permitSchema);
 
 module.exports = Permit;
