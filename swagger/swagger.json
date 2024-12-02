@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080"
+      "url": "http://localhost:8081"
     }
   ],
   "paths": {
-    "/permit-service": {
+    "/permit-service/permits": {
       "get": {
         "summary": "Get all permits",
         "operationId": "getAllPermits",
@@ -57,6 +57,101 @@
           }
         }
       }
+    },
+    "/permit-service/permits/{permitNumber}": {
+      "get": {
+        "summary": "Get a permit by permitNumber",
+        "operationId": "getPermitByPermitNumber",
+        "parameters": [
+          {
+            "name": "permitNumber",
+            "in": "path",
+            "required": true,
+            "description": "The permit number to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permit details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Permit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Permit not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a permit by permitNumber",
+        "operationId": "updatePermitByPermitNumber",
+        "parameters": [
+          {
+            "name": "permitNumber",
+            "in": "path",
+            "required": true,
+            "description": "The permit number to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Permit updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Permit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Permit not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a permit by permitNumber",
+        "operationId": "deletePermitByPermitNumber",
+        "parameters": [
+          {
+            "name": "permitNumber",
+            "in": "path",
+            "required": true,
+            "description": "The permit number to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permit deleted successfully"
+          },
+          "404": {
+            "description": "Permit not found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -80,6 +175,9 @@
           "routeName": {
             "type": "string"
           },
+          "routeNumber": {
+            "type": "string"
+          },
           "busOwner": {
             "type": "string"
           },
@@ -98,7 +196,8 @@
           "ac": {
             "type": "boolean"
           }
-        }
+        },
+        "required": ["permitId", "permitNumber", "expiryAt", "vehicleNumber", "routeNumber", "busOwner", "busType", "numberCapacity", "pricePerSeat", "music", "ac"]
       }
     }
   }
