@@ -1,55 +1,28 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "Permit Service API",
-      "description": "API to manage permits",
-      "version": "1.0"
-    },
-    "servers": [
-      {
-        "url": "http://localhost:8080"
-      }
-    ],
-    "paths": {
-      "/permit-service": {
-        "get": {
-          "summary": "Get all permits",
-          "operationId": "getAllPermits",
-          "responses": {
-            "200": {
-              "description": "List of permits",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Permit"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "post": {
-          "summary": "Create a new permit",
-          "operationId": "createPermit",
-          "requestBody": {
-            "required": true,
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Permit Service API",
+    "description": "API to manage permits",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/permit-service": {
+      "get": {
+        "summary": "Get all permits",
+        "operationId": "getAllPermits",
+        "responses": {
+          "200": {
+            "description": "List of permits",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permit"
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Permit created successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/Permit"
                   }
                 }
@@ -57,50 +30,76 @@
             }
           }
         }
-      }
-    },
-    "components": {
-      "schemas": {
-        "Permit": {
-          "type": "object",
-          "properties": {
-            "permitId": {
-              "type": "number"
-            },
-            "permitNumber": {
-              "type": "string"
-            },
-            "expiryAt": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "vehicleNumber": {
-              "type": "string"
-            },
-            "routeName": {
-              "type": "string"
-            },
-            "busOwner": {
-              "type": "string"
-            },
-            "busType": {
-              "type": "string"
-            },
-            "numberCapacity": {
-              "type": "number"
-            },
-            "pricePerSeat": {
-              "type": "number"
-            },
-            "music": {
-              "type": "boolean"
-            },
-            "ac": {
-              "type": "boolean"
+      },
+      "post": {
+        "summary": "Create a new permit",
+        "operationId": "createPermit",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Permit created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Permit"
+                }
+              }
             }
           }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "Permit": {
+        "type": "object",
+        "properties": {
+          "permitId": {
+            "type": "number"
+          },
+          "permitNumber": {
+            "type": "string"
+          },
+          "expiryAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vehicleNumber": {
+            "type": "string"
+          },
+          "routeName": {
+            "type": "string"
+          },
+          "busOwner": {
+            "type": "string"
+          },
+          "busType": {
+            "type": "string"
+          },
+          "numberCapacity": {
+            "type": "number"
+          },
+          "pricePerSeat": {
+            "type": "number"
+          },
+          "music": {
+            "type": "boolean"
+          },
+          "ac": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
   }
-  
+}

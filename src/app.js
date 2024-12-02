@@ -8,6 +8,7 @@ const swaggerDocument = require('../swagger/swagger.json');  // Swagger document
 
 const app = express();
 
+
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());  // To parse JSON request bodies
