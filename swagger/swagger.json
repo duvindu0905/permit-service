@@ -8,12 +8,17 @@
   "servers": [
     {
       "url": "http://localhost:8081"
+    },
+    {
+      "url": "https://api.permitservice.bussewaya.online",
+      "description": "Production Server"
     }
   ],
   "paths": {
     "/permit-service/permits": {
       "get": {
         "summary": "Get all permits",
+        "tags": ["Permit"],
         "operationId": "getAllPermits",
         "responses": {
           "200": {
@@ -33,6 +38,7 @@
       },
       "post": {
         "summary": "Create a new permit",
+        "tags": ["Permit"],
         "operationId": "createPermit",
         "requestBody": {
           "required": true,
@@ -61,6 +67,7 @@
     "/permit-service/permits/{permitNumber}": {
       "get": {
         "summary": "Get a permit by permitNumber",
+        "tags": ["Permit"],
         "operationId": "getPermitByPermitNumber",
         "parameters": [
           {
@@ -91,6 +98,7 @@
       },
       "put": {
         "summary": "Update a permit by permitNumber",
+        "tags": ["Permit"],
         "operationId": "updatePermitByPermitNumber",
         "parameters": [
           {
@@ -131,6 +139,7 @@
       },
       "delete": {
         "summary": "Delete a permit by permitNumber",
+        "tags": ["Permit"],
         "operationId": "deletePermitByPermitNumber",
         "parameters": [
           {
