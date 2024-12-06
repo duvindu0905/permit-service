@@ -3,8 +3,8 @@ nibm index - YR3COBSCCOMP232P-007
 
 Api for permit service 
 
-url: kjkk
+url: https://api.permitservice.bussewaya.online
 
-example: 
+example: https://api.permitservice.bussewaya.online/permit-service/permits
 
-swagger url: 
+swagger url: https://api.permitservice.bussewaya.online/api-docs/#/
