@@ -13,11 +13,8 @@ const connectDB = async () => {
 
     mongoose.set('strictQuery', true);  // Enable strict query for Mongoose 6+
 
-    // Connect to MongoDB using the URI from the environment variable
-    await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // Connect to MongoDB using the URI from the environment variable (without deprecated options)
+    await mongoose.connect(mongoURI);
 
     console.log('PermitService MongoDB connected');
   } catch (err) {
