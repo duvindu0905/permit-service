@@ -11,7 +11,7 @@
       "description": "Development Server"
     },
     {
-      "url": "https://api.permitservice.bussewaya.online",
+      "url": "https://permit-service-193893744076.us-central1.run.app",
       "description": "Production Server"
     }
   ],
