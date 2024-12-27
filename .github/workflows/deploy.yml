@@ -36,4 +36,4 @@ jobs:
             --set-env-vars=MONGO_URI_ROUTE=${{ secrets.MONGO_URI_ROUTE }} \
                                MONGO_URI_PERMIT=${{ secrets.MONGO_URI_PERMIT }} \
                                ROUTE_SERVICE_URL_LOCAL=http://localhost:8080/route-service/routes \
-                               ROUTE_SERVICE_URL_PRODUCTION=https://api.routeservice.bussewaya.online/route-service/routes
+                               ROUTE_SERVICE_URL_PRODUCTION=https://route-service-193893744076.us-central1.run.app/route-service/routes
